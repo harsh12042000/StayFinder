@@ -24,9 +24,7 @@ const AddFacility = () => {
         console.log(res);
 
         console.log(res.responseMessage);
-           
-
-              navigate("/home");
+             navigate("/home"); 
               toast.warn(res.responseMessage, {
                 position: "top-center",
                 autoClose: 5000,
