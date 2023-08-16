@@ -63,6 +63,8 @@ function App() {
         <Route
           path="/hotel/verify/booking/:bookingId"
           element={<VerifyBooking />}
+
+          // this is change
         />
       </Routes>
     </div>
