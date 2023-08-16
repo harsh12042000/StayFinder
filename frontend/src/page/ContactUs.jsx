@@ -22,9 +22,7 @@ const ContactUs = () => {
         fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores
         labore suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto
         ab laudantium modi minima sunt esse temporibus sint culpa, recusandae
-        aliquam numquam totam ratione voluptas quod exercitationem fuga.
-        Possimus quis earum veniam quasi aliquam eligendi, placeat qui corporis!
-        1427 lorem ipsumWhatever By Shadow on Mar 26 2022 DonateThankComment
+       
         <br />
         <br />
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
