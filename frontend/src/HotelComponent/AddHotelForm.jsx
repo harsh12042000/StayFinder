@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import NotFound from "../page/PageNotFound";
+
+const admin = JSON.parse(sessionStorage.getItem("active-admin"));
+
+const App = () => {
+  return admin ? <AddHotelForm /> : <p><NotFound/></p>;
+};
 
 const AddHotelForm = () => {
   const [locations, setLocations] = useState([]);
@@ -300,4 +307,4 @@ const AddHotelForm = () => {
   );
 };
 
-export default AddHotelForm;
+export default App;

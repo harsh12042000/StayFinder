@@ -47,7 +47,12 @@ const UserLoginForm = () => {
           progress: undefined,
         });
 
-        navigate("/home");
+        if(sessionStorage.getItem("active-admin") != null) {
+          navigate("/admin");
+        } else {
+          navigate("/home");
+        }
+        
         window.location.reload(true);
       });
     });

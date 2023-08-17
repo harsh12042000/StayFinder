@@ -19,12 +19,20 @@ const AdminHeader = () => {
       progress: undefined,
     });
     sessionStorage.removeItem("active-admin");
-    window.location.reload(true);
-    navigate("/home");
+    navigate("/home");    
   };
 
   return (
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
+      <li className="nav-item">
+        <Link
+          to="/admin"
+          className="nav-link active"
+          aria-current="page"
+        >
+          <b className="text-color">Dashboard</b>
+        </Link>
+      </li>
       <li className="nav-item">
         <Link
           to="/admin/add-location"
@@ -51,7 +59,7 @@ const AdminHeader = () => {
           className="nav-link active"
           aria-current="page"
         >
-          <b className="text-color">Register Hotel User</b>
+          <b className="text-color">Add Hotel Manager</b>
         </Link>
       </li>
 

@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
+import NotFound from "../page/PageNotFound";
+
+const admin = JSON.parse(sessionStorage.getItem("active-admin"));
+
+const App = () => {
+  return admin ? <ViewAllBooking /> : <p><NotFound/></p>;
+};
 
 const ViewAllBooking = () => {
   const [allBookings, setAllBookings] = useState([]);
@@ -27,12 +34,12 @@ const ViewAllBooking = () => {
   return (
     <div className="mt-3">
       <div
-        className="card form-card ms-2 me-2 mb-5 custom-bg border-color "
+        className="card form-card ms-2 me-2 mb-5"
         style={{
           height: "45rem",
         }}
       >
-        <div className="card-header custom-bg-text text-center bg-color">
+        <div className="card-header custom-bg-text text-center">
           <h2>All Bookings</h2>
         </div>
         <div
@@ -43,7 +50,7 @@ const ViewAllBooking = () => {
         >
           <div className="table-responsive">
             <table className="table table-hover text-color text-center">
-              <thead className="table-bordered border-color bg-color custom-bg-text">
+              <thead className="table-bordered custom-bg-text">
                 <tr>
                   <th scope="col">Hotel</th>
                   <th scope="col">Hotel Name</th>
@@ -78,41 +85,41 @@ const ViewAllBooking = () => {
                         />
                       </td>
                       <td>
-                        <b>{booking.hotelName}</b>
+                        {booking.hotelName}
                       </td>
                       <td>
-                        <b>{booking.hotelEmail}</b>
+                        {booking.hotelEmail}
                       </td>
                       <td>
-                        <b>{booking.hotelContact}</b>
+                        {booking.hotelContact}
                       </td>
                       <td>
-                        <b>{booking.bookingId}</b>
+                        {booking.bookingId}
                       </td>
                       <td>
-                        <b>{booking.customerName}</b>
+                        {booking.customerName}
                       </td>
                       <td>
-                        <b>{booking.customerContact}</b>
+                        {booking.customerContact}
                       </td>
                       <td>
-                        <b>{booking.checkIn}</b>
+                        {booking.checkIn}
                       </td>
                       <td>
-                        <b>{booking.checkOut}</b>
+                        {booking.checkOut}
                       </td>
                       <td>
-                        <b>{booking.totalRoom}</b>
+                        {booking.totalRoom}
                       </td>
 
                       <td>
-                        <b>{booking.totalDay}</b>
+                        {booking.totalDay}
                       </td>
                       <td>
-                        <b>{booking.status}</b>
+                        {booking.status}
                       </td>
                       <td>
-                        <b>{booking.totalAmount}</b>
+                        {booking.totalAmount}
                       </td>
                     </tr>
                   );
@@ -126,4 +133,4 @@ const ViewAllBooking = () => {
   );
 };
 
-export default ViewAllBooking;
+export default App;

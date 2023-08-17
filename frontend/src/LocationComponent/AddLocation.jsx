@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import NotFound from "../page/PageNotFound";
+
+const admin = JSON.parse(sessionStorage.getItem("active-admin"));
+
+const App = () => {
+  return admin ? <AddLocation /> : <p><NotFound/></p>;
+};
+
 
 const AddLocation = () => {
   const [city, setCity] = useState("");
@@ -97,4 +105,6 @@ const AddLocation = () => {
   );
 };
 
-export default AddLocation;
+export default App;
+
+
