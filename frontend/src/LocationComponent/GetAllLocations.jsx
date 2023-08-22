@@ -24,24 +24,25 @@ const GetAllLocations = () => {
   }, []);
 
   return (
-    <div class="list-group form-card border-color">
-      <Link
-        to="/home/all/hotel/location"
-        class="list-group-item list-group-item-action bg-color custom-bg-text"
-      >
-        <b>All Locations</b>
-      </Link>
-
-      {locations.map((location) => {
-        return (
+    <div className="location-container">
+      <h1 className="page-title">Explore Beautiful Locations</h1>
+      <div className="location-list">
+        {locations.map((location) => (
           <Link
+            key={location.id}
             to={`/home/hotel/location/${location.id}/${location.city}`}
-            class="list-group-item list-group-item-action text-color custom-bg"
+            className="location-item"
+            style={{ backgroundImage: `url(${location.image})` }}
           >
-            <b>{location.city}</b>
+            <div className="location-details">
+              <h2 className="location-title">{location.city}</h2>
+              <p className="location-description">
+                Discover the charm of {location.city} with our hotels.
+              </p>
+            </div>
           </Link>
-        );
-      })}
+        ))}
+      </div>
     </div>
   );
 };

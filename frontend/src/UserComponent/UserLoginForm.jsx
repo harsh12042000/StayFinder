@@ -30,11 +30,11 @@ const UserLoginForm = () => {
         console.log(res);
 
         if (res.role === "Admin") {
-          sessionStorage.setItem("active-admin", JSON.stringify(res));
+          localStorage.setItem("active-admin", JSON.stringify(res));
         } else if (res.role === "Customer") {
-          sessionStorage.setItem("active-customer", JSON.stringify(res));
+          localStorage.setItem("active-customer", JSON.stringify(res));
         } else if (res.role === "Hotel") {
-          sessionStorage.setItem("active-hotel", JSON.stringify(res));
+          localStorage.setItem("active-hotel", JSON.stringify(res));
         }
 
         toast.success("logged in successfully!!!", {
@@ -47,13 +47,14 @@ const UserLoginForm = () => {
           progress: undefined,
         });
 
-        if(sessionStorage.getItem("active-admin") != null) {
+        if(localStorage.getItem("active-admin") != null) {
           navigate("/admin");
+          window.location.reload(true);
         } else {
           navigate("/home");
         }
         
-        window.location.reload(true);
+        //window.location.reload(true);
       });
     });
     e.preventDefault();
@@ -83,7 +84,7 @@ const UserLoginForm = () => {
                   <option value="0">Select Role</option>
                   <option value="Admin"> Admin </option>
                   <option value="Customer"> Customer </option>
-                  <option value="Hotel"> Hotel </option>
+                  <option value="Hotel"> Manager </option>
                 </select>
               </div>
 

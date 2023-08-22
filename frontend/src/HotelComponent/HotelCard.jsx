@@ -5,6 +5,10 @@ import HotelCarousel from "./HotelCarousel";
 const HotelCard = (hotel) => {
   return (
     <div className="col">
+      <Link
+              to={`/hotel/${hotel.item.id}/location/${hotel.item.location.id}`}
+              style={{ textDecoration: "none" }}
+            >
       <div class="card border-color rounded-card card-hover product-card custom-bg h-100">
         <img
           src={"http://localhost:8081/api/hotel/" + hotel.item.image2}
@@ -49,7 +53,7 @@ const HotelCard = (hotel) => {
           <div className="text-center text-color">
             <p>
               <span>
-                <h4>Price Per Price : &#8377;{hotel.item.pricePerDay}</h4>
+                <h4>Price Per Day : &#8377;{hotel.item.pricePerDay}</h4>
               </span>
             </p>
           </div>
@@ -63,6 +67,7 @@ const HotelCard = (hotel) => {
           </div>
         </div>
       </div>
+      </Link>
     </div>
   );
 };

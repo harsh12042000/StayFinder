@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 const AdminHeader = () => {
   let navigate = useNavigate();
 
-  const user = JSON.parse(sessionStorage.getItem("active-admin"));
+  const user = JSON.parse(localStorage.getItem("active-admin"));
   console.log(user);
 
   const adminLogout = () => {
@@ -18,7 +18,7 @@ const AdminHeader = () => {
       draggable: true,
       progress: undefined,
     });
-    sessionStorage.removeItem("active-admin");
+    localStorage.removeItem("active-admin");
     navigate("/home");    
   };
 

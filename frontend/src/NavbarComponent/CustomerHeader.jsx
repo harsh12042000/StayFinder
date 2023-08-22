@@ -15,7 +15,7 @@ const CustomerHeader = () => {
       draggable: true,
       progress: undefined,
     });
-    sessionStorage.removeItem("active-customer");
+    localStorage.removeItem("active-customer");
 
     navigate("/home");
     window.location.reload(true);

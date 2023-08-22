@@ -33,12 +33,12 @@ const GetHotelReviews = (hotel) => {
 
   return (
     <div
-      class="list-group form-card border-color"
+      class="list-group"
       style={{
         height: "25rem",
       }}
     >
-      <div class="list-group-item list-group-item-action bg-color custom-bg-text">
+      <div class="list-group-item list-group-item-action">
         <b>Reviews</b>
       </div>
       <div
@@ -48,7 +48,7 @@ const GetHotelReviews = (hotel) => {
       >
         {reviews.map((review) => {
           return (
-            <div class="list-group-item list-group-item-action text-color custom-bg">
+            <div class="list-group-item list-group-item-action">
               <b className="text-color1">{review.user + " "}</b>
               <b className="text-color">{review.star + " /5 "}</b>
               <img

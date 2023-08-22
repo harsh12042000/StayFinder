@@ -9,7 +9,7 @@ const Footer = () => {
               <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                   <h5 class="text-uppercase text-color">
-                    Hotel Booking System
+                    Stay Finder
                   </h5>
 
                   <p>

@@ -7,16 +7,16 @@ const Header = () => {
     <div>
       <nav className="navbar  navbar-expand-lg custom-bg text-color">
         <div className="container-fluid text-color">
-          <img
+          {/* <img
             src={logo}
             width="40"
             height="40"
             className="d-inline-block align-top"
             alt=""
-          />
+          /> */}
           <Link to="/" className="navbar-brand">
             <i>
-              <b className="text-color">Royal & Luxury Hotels</b>
+              <b className="text-color">Stay Finder</b>
             </i>
           </Link>
 

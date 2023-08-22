@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ViewMyHotelBookings = () => {
-  let user = JSON.parse(sessionStorage.getItem("active-hotel"));
+  let user = JSON.parse(localStorage.getItem("active-hotel"));
 
   const [allBookings, setAllBookings] = useState([]);
 

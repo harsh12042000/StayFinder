@@ -7,7 +7,7 @@ import axios from "axios";
 import HotelCard from "../HotelComponent/HotelCard";
 
 const AddHotelReview = () => {
-  let user = JSON.parse(sessionStorage.getItem("active-customer"));
+  let user = JSON.parse(localStorage.getItem("active-customer"));
 
   const [userId, setUserId] = useState(user.id);
 
