@@ -1,4 +1,4 @@
-package com.hotelmanagement.entity;
+package com.stayfinder.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,8 +7,8 @@ import javax.persistence.Id;
 
 import org.springframework.beans.BeanUtils;
 
-import com.hotelmanagement.dto.UserDto;
-import com.hotelmanagement.dto.UserLoginResponse;
+import com.stayfinder.dto.UserDto;
+import com.stayfinder.dto.UserLoginResponse;
 
 @Entity
 public class User {

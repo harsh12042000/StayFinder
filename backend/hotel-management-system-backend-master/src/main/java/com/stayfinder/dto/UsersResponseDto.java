@@ -1,8 +1,8 @@
-package com.hotelmanagement.dto;
+package com.stayfinder.dto;
 
 import java.util.List;
 
-import com.hotelmanagement.entity.User;
+import com.stayfinder.entity.User;
 
 public class UsersResponseDto extends CommanApiResponse {
 	

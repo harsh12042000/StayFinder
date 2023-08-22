@@ -1,4 +1,4 @@
-package com.hotelmanagement.filter;
+package com.stayfinder.filter;
 	
 import java.io.IOException;
 import javax.servlet.FilterChain;
@@ -14,8 +14,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.hotelmanagement.service.CustomUserDetailsService;
-import com.hotelmanagement.utility.JwtUtil;
+import com.stayfinder.service.CustomUserDetailsService;
+import com.stayfinder.utility.JwtUtil;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {

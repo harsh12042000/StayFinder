@@ -1,4 +1,4 @@
-package com.hotelmanagement.service;
+package com.stayfinder.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.hotelmanagement.entity.User;
+import com.stayfinder.entity.User;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

@@ -1,4 +1,4 @@
-package com.hotelmanagement.entity;
+package com.stayfinder.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 import org.springframework.beans.BeanUtils;
 
-import com.hotelmanagement.dto.FacilityFetchResponse;
+import com.stayfinder.dto.FacilityFetchResponse;
 
 @Entity
 public class Facility {

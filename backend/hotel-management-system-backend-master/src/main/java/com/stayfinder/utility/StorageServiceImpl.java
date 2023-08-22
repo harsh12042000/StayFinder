@@ -1,4 +1,4 @@
-package com.hotelmanagement.utility;
+package com.stayfinder.utility;
 
 import java.io.File;
 import java.io.FileOutputStream;

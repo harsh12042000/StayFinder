@@ -1,4 +1,4 @@
-package com.hotelmanagement.controller;
+package com.stayfinder.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hotelmanagement.dto.BookingDetailDto;
-import com.hotelmanagement.dto.BookingDto;
-import com.hotelmanagement.dto.CommanApiResponse;
-import com.hotelmanagement.dto.UpdateBookingStatusRequestDto;
-import com.hotelmanagement.entity.Booking;
-import com.hotelmanagement.entity.Hotel;
-import com.hotelmanagement.entity.User;
-import com.hotelmanagement.exception.BookingNotFoundException;
-import com.hotelmanagement.service.BookingService;
-import com.hotelmanagement.service.HotelService;
-import com.hotelmanagement.service.UserService;
-import com.hotelmanagement.utility.Constants.BookingStatus;
-import com.hotelmanagement.utility.Constants.ResponseCode;
-import com.hotelmanagement.utility.Helper;
+import com.stayfinder.dto.BookingDetailDto;
+import com.stayfinder.dto.BookingDto;
+import com.stayfinder.dto.CommanApiResponse;
+import com.stayfinder.dto.UpdateBookingStatusRequestDto;
+import com.stayfinder.entity.Booking;
+import com.stayfinder.entity.Hotel;
+import com.stayfinder.entity.User;
+import com.stayfinder.exception.BookingNotFoundException;
+import com.stayfinder.service.BookingService;
+import com.stayfinder.service.HotelService;
+import com.stayfinder.service.UserService;
+import com.stayfinder.utility.Helper;
+import com.stayfinder.utility.Constants.BookingStatus;
+import com.stayfinder.utility.Constants.ResponseCode;
 
 import io.swagger.annotations.ApiOperation;
 

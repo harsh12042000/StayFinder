@@ -1,4 +1,4 @@
-package com.hotelmanagement.service;
+package com.stayfinder.service;
 
 import org.springframework.stereotype.Service;
 

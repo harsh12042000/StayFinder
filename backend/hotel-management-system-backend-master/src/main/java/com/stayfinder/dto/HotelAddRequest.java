@@ -1,9 +1,9 @@
-package com.hotelmanagement.dto;
+package com.stayfinder.dto;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hotelmanagement.entity.Hotel;
+import com.stayfinder.entity.Hotel;
 
 public class HotelAddRequest {
 

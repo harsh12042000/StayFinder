@@ -1,4 +1,4 @@
-package com.hotelmanagement.service;
+package com.stayfinder.service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,8 +6,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hotelmanagement.dao.FacilityDao;
-import com.hotelmanagement.entity.Facility;
+import com.stayfinder.dao.FacilityDao;
+import com.stayfinder.entity.Facility;
 
 @Service
 public class FacilityService {

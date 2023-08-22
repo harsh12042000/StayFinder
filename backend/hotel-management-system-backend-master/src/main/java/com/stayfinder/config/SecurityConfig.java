@@ -1,4 +1,4 @@
-package com.hotelmanagement.config;
+package com.stayfinder.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,8 +14,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import com.hotelmanagement.filter.JwtFilter;
-import com.hotelmanagement.service.CustomUserDetailsService;
+
+import com.stayfinder.filter.JwtFilter;
+import com.stayfinder.service.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity

@@ -1,4 +1,4 @@
-package com.hotelmanagement.dao;
+package com.stayfinder.dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.hotelmanagement.entity.Booking;
+import com.stayfinder.entity.Booking;
 
 @Repository
 public interface BookingDao extends JpaRepository<Booking, Integer> {

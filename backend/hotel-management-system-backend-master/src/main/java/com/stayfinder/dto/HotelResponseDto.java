@@ -1,6 +1,6 @@
-package com.hotelmanagement.dto;
+package com.stayfinder.dto;
 
-import com.hotelmanagement.entity.Hotel;
+import com.stayfinder.entity.Hotel;
 
 public class HotelResponseDto extends CommanApiResponse {
 	

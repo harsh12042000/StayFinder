@@ -1,4 +1,4 @@
-package com.hotelmanagement.controller;
+package com.stayfinder.controller;
 
 import java.util.List;
 import org.slf4j.Logger;
@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.hotelmanagement.dto.CommanApiResponse;
-import com.hotelmanagement.dto.LocationFetchResponse;
-import com.hotelmanagement.entity.Location;
-import com.hotelmanagement.service.LocationService;
-import com.hotelmanagement.utility.Constants.ResponseCode;
+
+import com.stayfinder.dto.CommanApiResponse;
+import com.stayfinder.dto.LocationFetchResponse;
+import com.stayfinder.entity.Location;
+import com.stayfinder.service.LocationService;
+import com.stayfinder.utility.Constants.ResponseCode;
+
 import io.swagger.annotations.ApiOperation;
 
 @RestController

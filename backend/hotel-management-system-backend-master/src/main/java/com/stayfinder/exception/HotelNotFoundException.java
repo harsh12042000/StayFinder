@@ -1,4 +1,4 @@
-package com.hotelmanagement.exception;
+package com.stayfinder.exception;
 
 import org.springframework.stereotype.Component;
 

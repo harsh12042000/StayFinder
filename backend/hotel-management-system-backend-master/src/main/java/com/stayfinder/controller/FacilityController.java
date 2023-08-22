@@ -1,4 +1,4 @@
-package com.hotelmanagement.controller;
+package com.stayfinder.controller;
 
 import java.util.HashSet;
 import java.util.List;
@@ -18,16 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hotelmanagement.dto.CommanApiResponse;
-import com.hotelmanagement.dto.FacilityFetchResponse;
-import com.hotelmanagement.dto.HotelFacilityAddRequest;
-import com.hotelmanagement.entity.Facility;
-import com.hotelmanagement.entity.Hotel;
-import com.hotelmanagement.entity.HotelFacility;
-import com.hotelmanagement.service.FacilityService;
-import com.hotelmanagement.service.HotelFacilityService;
-import com.hotelmanagement.service.HotelService;
-import com.hotelmanagement.utility.Constants.ResponseCode;
+import com.stayfinder.dto.CommanApiResponse;
+import com.stayfinder.dto.FacilityFetchResponse;
+import com.stayfinder.dto.HotelFacilityAddRequest;
+import com.stayfinder.entity.Facility;
+import com.stayfinder.entity.Hotel;
+import com.stayfinder.entity.HotelFacility;
+import com.stayfinder.service.FacilityService;
+import com.stayfinder.service.HotelFacilityService;
+import com.stayfinder.service.HotelService;
+import com.stayfinder.utility.Constants.ResponseCode;
 
 import io.swagger.annotations.ApiOperation;
 

@@ -1,4 +1,4 @@
-package com.hotelmanagement.entity;
+package com.stayfinder.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

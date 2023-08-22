@@ -1,4 +1,4 @@
-package com.hotelmanagement.utility;
+package com.stayfinder.utility;
 
 import java.util.List;
 import org.springframework.core.io.Resource;

@@ -1,4 +1,4 @@
-package com.hotelmanagement.dto;
+package com.stayfinder.dto;
 
 public class HotelFacilityAddRequest {
 	

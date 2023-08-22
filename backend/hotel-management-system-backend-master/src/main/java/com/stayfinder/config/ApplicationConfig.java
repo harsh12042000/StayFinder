@@ -1,11 +1,11 @@
-package com.hotelmanagement.config;
+package com.stayfinder.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.hotelmanagement.interceptor.RequestHeaderInterceptor;
+import com.stayfinder.interceptor.RequestHeaderInterceptor;
 
 
 @Configuration

@@ -1,4 +1,4 @@
-package com.hotelmanagement.entity;
+package com.stayfinder.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.beans.BeanUtils;
 
-import com.hotelmanagement.dto.HotelDto;
+import com.stayfinder.dto.HotelDto;
 
 @Entity
 public class Hotel {

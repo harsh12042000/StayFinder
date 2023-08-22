@@ -1,8 +1,8 @@
-package com.hotelmanagement.dto;
+package com.stayfinder.dto;
 
 import java.util.List;
 
-import com.hotelmanagement.entity.Location;
+import com.stayfinder.entity.Location;
 
 public class LocationFetchResponse extends CommanApiResponse {
 	

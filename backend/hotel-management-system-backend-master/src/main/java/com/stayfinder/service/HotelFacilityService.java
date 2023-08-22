@@ -1,10 +1,11 @@
-package com.hotelmanagement.service;
+package com.stayfinder.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.hotelmanagement.dao.HotelFacilityDao;
-import com.hotelmanagement.entity.HotelFacility;
+
+import com.stayfinder.dao.HotelFacilityDao;
+import com.stayfinder.entity.HotelFacility;
 
 @Service
 public class HotelFacilityService {

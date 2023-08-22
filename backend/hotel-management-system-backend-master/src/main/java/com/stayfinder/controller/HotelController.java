@@ -1,4 +1,4 @@
-package com.hotelmanagement.controller;
+package com.stayfinder.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,19 +23,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hotelmanagement.dto.CommanApiResponse;
-import com.hotelmanagement.dto.HotelAddRequest;
-import com.hotelmanagement.dto.HotelAddResponse;
-import com.hotelmanagement.dto.HotelResponseDto;
-import com.hotelmanagement.entity.Hotel;
-import com.hotelmanagement.entity.Location;
-import com.hotelmanagement.entity.User;
-import com.hotelmanagement.exception.HotelNotFoundException;
-import com.hotelmanagement.service.HotelService;
-import com.hotelmanagement.service.LocationService;
-import com.hotelmanagement.service.UserService;
-import com.hotelmanagement.utility.Constants.ResponseCode;
-import com.hotelmanagement.utility.StorageService;
+import com.stayfinder.dto.CommanApiResponse;
+import com.stayfinder.dto.HotelAddRequest;
+import com.stayfinder.dto.HotelAddResponse;
+import com.stayfinder.dto.HotelResponseDto;
+import com.stayfinder.entity.Hotel;
+import com.stayfinder.entity.Location;
+import com.stayfinder.entity.User;
+import com.stayfinder.exception.HotelNotFoundException;
+import com.stayfinder.service.HotelService;
+import com.stayfinder.service.LocationService;
+import com.stayfinder.service.UserService;
+import com.stayfinder.utility.StorageService;
+import com.stayfinder.utility.Constants.ResponseCode;
 
 import io.swagger.annotations.ApiOperation;
 

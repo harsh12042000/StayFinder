@@ -1,4 +1,4 @@
-package com.hotelmanagement.config;
+package com.stayfinder.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.hotelmanagement"))
+                .apis(RequestHandlerSelectors.basePackage("com.stayfinder"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(metaData());
     }

@@ -1,4 +1,4 @@
-package com.hotelmanagement.advice;
+package com.stayfinder.advice;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;

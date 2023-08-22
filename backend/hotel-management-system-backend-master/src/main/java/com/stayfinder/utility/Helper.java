@@ -1,4 +1,4 @@
-package com.hotelmanagement.utility;
+package com.stayfinder.utility;
 
 public class Helper {
 	

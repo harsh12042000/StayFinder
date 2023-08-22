@@ -1,4 +1,4 @@
-package com.hotelmanagement.entity;
+package com.stayfinder.entity;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 
 import org.springframework.beans.BeanUtils;
 
-import com.hotelmanagement.dto.LocationFetchResponse;
+import com.stayfinder.dto.LocationFetchResponse;
 
 @Entity
 public class Location {

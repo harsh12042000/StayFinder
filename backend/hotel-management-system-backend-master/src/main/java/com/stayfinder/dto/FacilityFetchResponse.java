@@ -1,8 +1,8 @@
-package com.hotelmanagement.dto;
+package com.stayfinder.dto;
 
 import java.util.Set;
 
-import com.hotelmanagement.entity.Facility;
+import com.stayfinder.entity.Facility;
 
 public class FacilityFetchResponse extends CommanApiResponse { 
 	

@@ -1,4 +1,4 @@
-package com.hotelmanagement.service;
+package com.stayfinder.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.hotelmanagement.dao.LocationDao;
-import com.hotelmanagement.entity.Location;
+import com.stayfinder.dao.LocationDao;
+import com.stayfinder.entity.Location;
 
 @Service
 public class LocationService {

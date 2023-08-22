@@ -1,4 +1,4 @@
-package com.hotelmanagement.advice;
+package com.stayfinder.advice;
 
 import java.util.NoSuchElementException;
 
@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import com.hotelmanagement.exception.BookingNotFoundException;
-import com.hotelmanagement.exception.HotelNotFoundException;
+
+import com.stayfinder.exception.BookingNotFoundException;
+import com.stayfinder.exception.HotelNotFoundException;
 
 @ControllerAdvice
 public class MyControllerAdvice extends ResponseEntityExceptionHandler {

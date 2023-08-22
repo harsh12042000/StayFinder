@@ -1,4 +1,4 @@
-package com.hotelmanagement.controller;
+package com.stayfinder.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,19 +21,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hotelmanagement.dto.CommanApiResponse;
-import com.hotelmanagement.dto.UserDto;
-import com.hotelmanagement.dto.UserLoginRequest;
-import com.hotelmanagement.dto.UserLoginResponse;
-import com.hotelmanagement.dto.UserRoleResponse;
-import com.hotelmanagement.dto.UsersResponseDto;
-import com.hotelmanagement.entity.User;
-import com.hotelmanagement.service.CustomUserDetailsService;
-import com.hotelmanagement.service.UserService;
-import com.hotelmanagement.utility.Constants.ResponseCode;
-import com.hotelmanagement.utility.Constants.Sex;
-import com.hotelmanagement.utility.Constants.UserRole;
-import com.hotelmanagement.utility.JwtUtil;
+import com.stayfinder.dto.CommanApiResponse;
+import com.stayfinder.dto.UserDto;
+import com.stayfinder.dto.UserLoginRequest;
+import com.stayfinder.dto.UserLoginResponse;
+import com.stayfinder.dto.UserRoleResponse;
+import com.stayfinder.dto.UsersResponseDto;
+import com.stayfinder.entity.User;
+import com.stayfinder.service.CustomUserDetailsService;
+import com.stayfinder.service.UserService;
+import com.stayfinder.utility.JwtUtil;
+import com.stayfinder.utility.Constants.ResponseCode;
+import com.stayfinder.utility.Constants.Sex;
+import com.stayfinder.utility.Constants.UserRole;
 
 import io.swagger.annotations.ApiOperation;
 
