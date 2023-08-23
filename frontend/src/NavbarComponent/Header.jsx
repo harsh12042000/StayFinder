@@ -16,7 +16,7 @@ const Header = () => {
           />
           <Link to="/" className="navbar-brand">
             <i>
-              <b className="text-color">Royal & Luxury Hotels</b>
+              <b className="text-color">Stay Finder</b>
             </i>
           </Link>
 
