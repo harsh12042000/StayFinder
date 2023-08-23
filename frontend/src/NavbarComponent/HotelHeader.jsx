@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 const HotelHeader = () => {
   let navigate = useNavigate();
 
-  const user = JSON.parse(sessionStorage.getItem("active-hotel"));
+  const user = JSON.parse(localStorage.getItem("active-hotel"));
   console.log(user);
 
   const hotelLogout = () => {
@@ -18,7 +18,7 @@ const HotelHeader = () => {
       draggable: true,
       progress: undefined,
     });
-    sessionStorage.removeItem("active-hotel");
+    localStorage.removeItem("active-hotel");
     window.location.reload(true);
     navigate("home");
   };

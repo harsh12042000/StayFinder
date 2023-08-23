@@ -72,10 +72,10 @@ const AddHotelFacilities = () => {
   };
 
   const deleteHotelFacility = (f) => {
-    let index = hoteFacilities.indexOf(f);
-    hoteFacilities.slice(index);
-    setHoteFacilities(hoteFacilities);
+    const updatedFacilities = hoteFacilities.filter((facility) => facility !== f);
+    setHoteFacilities(updatedFacilities);
   };
+  
 
   return (
     <div>

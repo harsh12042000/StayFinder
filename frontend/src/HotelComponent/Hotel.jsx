@@ -14,8 +14,8 @@ import Footer from "../page/Footer";
 const Hotel = () => {
   const { hotelId, locationId } = useParams();
 
-  let user = JSON.parse(sessionStorage.getItem("active-customer"));
-  let admin = JSON.parse(sessionStorage.getItem("active-admin"));
+  let user = JSON.parse(localStorage.getItem("active-customer"));
+  let admin = JSON.parse(localStorage.getItem("active-admin"));
 
   const [quantity, setQuantity] = useState("");
 
@@ -161,9 +161,9 @@ const Hotel = () => {
   };
 
   return (
-    <div className="container-fluid mb-5">
+    <div className="container mb-5">
       <div class="row">
-        <div class="col-sm-3 mt-2">
+        <div class="col-6 mt-2">
           <div class="card form-card border-color custom-bg">
             <HotelCarousel
               item={{
@@ -174,7 +174,7 @@ const Hotel = () => {
             />
           </div>
         </div>
-        <div class="col-sm-5 mt-2">
+        <div class="col-6 mt-2">
           <div class="card form-card border-color custom-bg">
             <div class="card-header bg-color">
               <div className="d-flex justify-content-between">
@@ -298,13 +298,20 @@ const Hotel = () => {
               })()}
             </div>
           </div>
-        </div>
-        <div class="col-sm-2 mt-2">
+          
+
+          <div className="row mt-2">
+        <div className="col-6 mt-2">
+          {/* {
+          console.log("********") } {
+          console.log(hotel)} */}
           <GetHotelFacilities item={hotel} />
         </div>
-
-        <div class="col-sm-2 mt-2">
+        <div className="col-6 mt-2">
           <GetHotelReviews item={hotel} />
+        </div>
+      </div>
+
         </div>
       </div>
 

@@ -89,7 +89,7 @@ const UserRegister = () => {
           style={{ width: "50rem" }}
         >
           <div className="card-header bg-color custom-bg-text text-center">
-            <h5 className="card-title">Register {user.role}</h5>
+            <h5 className="card-title">{user.role == "Hotel" ? "Add Manager Details" : "Register " + user.role}</h5>
           </div>
           <div className="card-body">
             <form className="row g-3" onSubmit={saveUser}>
@@ -238,7 +238,7 @@ const UserRegister = () => {
               <div className="d-flex aligns-items-center justify-content-center">
                 <input
                   type="submit"
-                  className="btn bg-color custom-bg-text col-md-3"
+                  className="btn col-md-3"
                   value="Register User"
                 />
               </div>

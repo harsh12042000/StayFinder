@@ -13,6 +13,7 @@ const Footer = () => {
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                   <h5 class="text-uppercase mb-4">Stay Finder</h5>
 
+
                   <p>
                     Being a 24/7 Hotel is one of our best amenities because we
                     can offer our customer unrestricted freedom of access from

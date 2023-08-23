@@ -23,7 +23,7 @@ code {
 }
 
 .border-color {
-  border-color: #D4AA00;
+  border-color: #9b0101;
 }
 
 .custom-bg-text {
@@ -31,7 +31,7 @@ code {
 }
 
 .bg-color {
-  background-color: #D4AA00;
+  background-color: #0d6efd;
 }
 
 .rounded-card {
@@ -324,4 +324,94 @@ ADMIN DASHBOARD
 .dashboard .top-selling img {
   border-radius: 5px;
   max-width: 60px;
+}
+
+.location-container {
+  padding: 40px;
+  background-color: #f5f5f5;
+}
+
+.page-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.location-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.location-item {
+  display: block;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.location-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.location-bg {
+  overflow: hidden;
+  height: 180px;
+  position: relative;
+}
+
+.location-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.location-item:hover .location-image {
+  transform: scale(1.05);
+}
+
+.location-details {
+  padding: 20px;
+}
+
+.location-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.location-description {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.home-page {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.location-section,
+.hotels-section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.hotel-card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }

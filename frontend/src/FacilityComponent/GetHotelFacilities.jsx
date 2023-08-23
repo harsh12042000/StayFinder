@@ -10,6 +10,10 @@ const GetHotelFacilities = (hotel) => {
 
   const [facilities, setFacilities] = useState([]);
 
+  if(hotel != null) {
+
+  }
+
   const retrieveAllFacilities = async () => {
     const response = await axios.get(
       "http://localhost:8081/api/facility/hotel?hotelId=" + hotelId
@@ -30,16 +34,16 @@ const GetHotelFacilities = (hotel) => {
 
   return (
     <div
-      class="list-group form-card border-color"
+      class="list-group"
       style={{
         height: "25rem",
       }}
     >
       <Link
         to="#"
-        class="list-group-item list-group-item-action bg-color custom-bg-text"
+        class="list-group-item list-group-item-action"
       >
-        <b>Hotel Facilities</b>
+        <b>Facilities</b>
       </Link>
 
       <div

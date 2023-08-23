@@ -1,6 +1,5 @@
 import Carousel from "./Carousel";
 import GetAllLocations from "../LocationComponent/GetAllLocations";
-import GetAllFacility from "../FacilityComponent/GetAllFacility";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -12,64 +11,37 @@ const HomePage = () => {
   const { locationId } = useParams();
 
   useEffect(() => {
-    const getAllHotels = async () => {
-      const allHotels = await retrieveAllHotels();
-      if (allHotels) {
-        setHotels(allHotels.hotels);
+    const fetchData = async () => {
+      const response = await axios.get(
+        locationId
+          ? `http://localhost:8081/api/hotel/location?locationId=${locationId}`
+          : "http://localhost:8081/api/hotel/fetch"
+      );
+
+      if (response.data) {
+        setHotels(response.data.hotels);
       }
     };
 
-    const getProductsByLocation = async () => {
-      const allHotels = await retrieveProductsByLocation();
-      if (allHotels) {
-        setHotels(allHotels.hotels);
-      }
-    };
-
-    if (locationId == null) {
-      console.log("Location Id is null");
-      getAllHotels();
-    } else {
-      console.log("Location Id is NOT null");
-      getProductsByLocation();
-    }
+    fetchData();
   }, [locationId]);
 
-  const retrieveAllHotels = async () => {
-    const response = await axios.get("http://localhost:8081/api/hotel/fetch");
-
-    return response.data;
-  };
-
-  const retrieveProductsByLocation = async () => {
-    const response = await axios.get(
-      "http://localhost:8081/api/hotel/location?locationId=" + locationId
-    );
-
-    return response.data;
-  };
-
   return (
-    <div className="container-fluid mb-2">
+    <div className="home-page">
       <Carousel />
-      <div className="mt-2 mb-5">
-        <div className="row">
-          <div className="col-md-2">
-            <GetAllLocations />
-          </div>
-          <div className="col-md-8">
-            <div className="row row-cols-1 row-cols-md-3 g-3">
-              {hotels.map((hotel) => {
-                return <HotelCard item={hotel} />;
-              })}
-            </div>
-          </div>
-          <div className="col-md-2">
-            <GetAllFacility />
+      <div className="content-container">
+        <div className="location-section">
+          <GetAllLocations />
+        </div>
+        <div className="hotels-section">
+          <h2>Featured Hotels</h2>
+          <div className="hotel-card-list">
+            {hotels.map((hotel) => (
+              <HotelCard key={hotel.id} item={hotel} />
+            ))}
           </div>
         </div>
       </div>
-      <hr />
       <Footer />
     </div>
   );

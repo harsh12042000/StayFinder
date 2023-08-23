@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 import NotFound from "../page/PageNotFound";
 
-const admin = JSON.parse(sessionStorage.getItem("active-admin"));
+const admin = JSON.parse(localStorage.getItem("active-admin"));
 
 const App = () => {
   return admin ? <ViewAllBooking /> : <p><NotFound/></p>;

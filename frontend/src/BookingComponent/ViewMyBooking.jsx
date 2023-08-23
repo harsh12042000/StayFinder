@@ -5,7 +5,7 @@ import React from "react";
 const ViewMyBooking = () => {
   const [allBookings, setAllBookings] = useState([]);
 
-  let user = JSON.parse(sessionStorage.getItem("active-customer"));
+  let user = JSON.parse(localStorage.getItem("active-customer"));
 
   useEffect(() => {
     const getAllBooking = async () => {
