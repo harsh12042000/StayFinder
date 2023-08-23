@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
+import { FaFacebookSquare, FaLinkedin } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
+import { AiFillInstagram } from "react-icons/ai";
 const Footer = () => {
   return (
-    <div>
-      <div class="container my-5">
-        <footer class="text-center text-lg-start text-color">
+    <div class=" bg-dark mb-5 rounded">
+      <div class="container  ">
+        <footer class="text-center text-lg-start text-white">
           <div class="container-fluid p-4 pb-0">
             <section class="">
               <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                  <h5 class="text-uppercase text-color">
-                    Stay Finder
-                  </h5>
+                  <h5 class="text-uppercase mb-4">Stay Finder</h5>
+
 
                   <p>
                     Being a 24/7 Hotel is one of our best amenities because we
@@ -20,110 +22,70 @@ const Footer = () => {
                   </p>
                 </div>
 
-                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                  <h5 class="text-uppercase text-color-4">About us</h5>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0 ">
+                  <h5 class="text-uppercase text-white-4 mb-4">About us</h5>
+
+                  <ul class="list-unstyled mb-0 ">
+                    <li>
+                      <a href="#!" class="text-white text-decoration-none">
+                        About Team
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white text-decoration-none">
+                        Services
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white text-decoration-none">
+                        Privacy Policy
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                  <h5 class="text-uppercase text-white-4 mb-4">Contact us</h5>
 
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#!" class="text-color">
-                        Link 1
+                      <a href="#!" class="text-white text-decoration-none">
+                        <p>Email: info@example.com</p>
                       </a>
                     </li>
                     <li>
-                      <a href="#!" class="text-color">
-                        Link 2
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 3
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 4
+                      <a href="#!" class="text-white text-decoration-none">
+                        <p>Phone: +123 456 7890</p>
                       </a>
                     </li>
                   </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                  <h5 class="text-uppercase text-color-4">Contact us</h5>
-
-                  <ul class="list-unstyled mb-0">
+                  <ul class="list-unstyled mb-0 d-flex justify-content-right">
                     <li>
-                      <a href="#!" class="text-color">
-                        Link 1
-                      </a>
+                      <FaFacebookSquare
+                        className="connect text-light text-right m-2 "
+                        size={42}
+                      />
                     </li>
                     <li>
-                      <a href="#!" class="text-color">
-                        Link 2
-                      </a>
+                      <FaLinkedin
+                        className="connect text-light m-2"
+                        size={38}
+                      />
                     </li>
                     <li>
-                      <a href="#!" class="text-color">
-                        Link 3
-                      </a>
+                      <AiFillInstagram
+                        className="connect text-light m-2"
+                        size={38}
+                      />
                     </li>
                     <li>
-                      <a href="#!" class="text-color">
-                        Link 4
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                  <h5 class="text-uppercase text-color-4">Careers</h5>
-
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 1
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 2
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 3
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 4
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                  <h5 class="text-uppercase text-color-4">Links</h5>
-
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 1
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 2
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 3
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!" class="text-color">
-                        Link 4
-                      </a>
+                      <IoLogoYoutube
+                        className="connect text-light m-2"
+                        size={42}
+                      />
                     </li>
                   </ul>
                 </div>
@@ -134,11 +96,11 @@ const Footer = () => {
 
             <section class="">
               <p class="d-flex justify-content-center align-items-center">
-                <span class="me-3 text-color">Register for free</span>
+                <span class="me-3 text-white">Register for free</span>
                 <Link to="/user/customer/register" class="active">
                   <button
                     type="button"
-                    class="btn btn-outline-light btn-rounded bg-color text-color"
+                    class="btn btn-outline-light btn-rounded bg-color bg-success "
                   >
                     Sign up!
                   </button>
@@ -149,10 +111,10 @@ const Footer = () => {
             <hr class="mb-4" />
           </div>
 
-          <div class="text-center">
-            © 2023 Copyright:
-            <a class="text-color-3" href="localhost:3000/">
-              Stay Finder
+          <div class="text-center " style={{ height: 50 }}>
+            © 2023 Copyright : <nbsp></nbsp>
+            <a class="text-white text-decoration-none" href="localhost:3000/">
+              <nbsp></nbsp> Stay Finder
             </a>
           </div>
         </footer>
