@@ -12,52 +12,89 @@ const UserLoginForm = () => {
     role: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleUserInput = (e) => {
     setLoginRequest({ ...loginRequest, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (loginRequest.role === "0") {
+      newErrors.role = "Role must be selected";
+    }
+
+    if (!loginRequest.emailId.trim()) {
+      newErrors.emailId = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(loginRequest.emailId)) {
+      newErrors.emailId = "Invalid email address";
+    }
+
+    const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    if (!passwordPattern.test(loginRequest.password)) {
+      newErrors.password =
+        "Password must be at least 8 characters, contain one uppercase letter, one lowercase letter, and one number";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const loginAction = (e) => {
-    fetch("http://localhost:8081/api/user/login", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginRequest),
-    }).then((result) => {
-      console.log("result", result);
-      result.json().then((res) => {
-        console.log(res);
-
-        if (res.role === "Admin") {
-          localStorage.setItem("active-admin", JSON.stringify(res));
-        } else if (res.role === "Customer") {
-          localStorage.setItem("active-customer", JSON.stringify(res));
-        } else if (res.role === "Hotel") {
-          localStorage.setItem("active-hotel", JSON.stringify(res));
-        }
-
-        toast.success("logged in successfully!!!", {
-          position: "top-center",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-
-        if(localStorage.getItem("active-admin") != null) {
-          navigate("/admin");
-          window.location.reload(true);
-        } else {
-          navigate("/home");
-        }
-        
-        //window.location.reload(true);
-      });
-    });
     e.preventDefault();
+    if (validateForm()) {
+      fetch("http://localhost:8081/api/user/login", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginRequest),
+      })
+        .then((result) => {
+          if (!result.ok) {
+            throw new Error("Login failed!"); // This will handle a failed login based on HTTP status code
+          }
+          return result.json();
+        })
+        .then((res) => {
+          // Process login response
+          if (res.role === "Admin") {
+            localStorage.setItem("active-admin", JSON.stringify(res));
+            navigate("/admin");
+          } else if (res.role === "Customer") {
+            localStorage.setItem("active-customer", JSON.stringify(res));
+            navigate("/home");
+          } else if (res.role === "Hotel") {
+            localStorage.setItem("active-hotel", JSON.stringify(res));
+            navigate("/home");
+          }
+
+          toast.success("Logged in successfully!!!", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+
+          window.location.reload(true);
+        })
+        .catch((error) => {
+          toast.error(error.message, {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        });
+    }
   };
 
   return (
@@ -86,6 +123,9 @@ const UserLoginForm = () => {
                   <option value="Customer"> Customer </option>
                   <option value="Hotel"> Manager </option>
                 </select>
+                {errors.role && (
+                  <div className="invalid-feedback">{errors.role}</div>
+                )}
               </div>
 
               <div className="mb-3 text-color">
@@ -94,12 +134,17 @@ const UserLoginForm = () => {
                 </label>
                 <input
                   type="email"
-                  className="form-control"
+                  className={`form-control ${
+                    errors.emailId ? "is-invalid" : ""
+                  }`}
                   id="emailId"
                   name="emailId"
                   onChange={handleUserInput}
                   value={loginRequest.emailId}
                 />
+                {errors.emailId && (
+                  <div className="invalid-feedback">{errors.emailId}</div>
+                )}
               </div>
               <div className="mb-3 text-color">
                 <label for="password" className="form-label">
@@ -107,13 +152,18 @@ const UserLoginForm = () => {
                 </label>
                 <input
                   type="password"
-                  className="form-control"
+                  className={`form-control ${
+                    errors.password ? "is-invalid" : ""
+                  }`}
                   id="password"
                   name="password"
                   onChange={handleUserInput}
                   value={loginRequest.password}
                   autoComplete="on"
                 />
+                {errors.password && (
+                  <div className="invalid-feedback">{errors.password}</div>
+                )}
               </div>
               <button
                 type="submit"
