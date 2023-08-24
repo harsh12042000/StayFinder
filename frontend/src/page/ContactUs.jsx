@@ -15,8 +15,8 @@ const ContactUs = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+    if (formData.name.length < 5 || formData.name.length > 50) {
+      newErrors.name = 'Name must be between 5 and 50 characters';
     }
 
     if (!formData.email.trim()) {
@@ -27,6 +27,8 @@ const ContactUs = () => {
 
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
+    } else if (formData.message.length > 100) {
+      newErrors.message = 'Message must be a maximum of 100 characters';
     }
 
     setErrors(newErrors);
@@ -80,6 +82,8 @@ const ContactUs = () => {
     }));
     setErrors(updatedErrors);
   };
+
+
 
   return (
     <section id="contact" className="py-5">

@@ -50,8 +50,79 @@ const UserRegister = () => {
     getAllGenders();
   }, []);
 
+  // Function to validate the fields
+  const validateFields = () => {
+    // Regular expressions for validation
+    const nameRegex = /^[A-Z][a-zA-Z]{1,29}$/; // No numbers or symbols, starts with a capital letter, and is at most 30 characters
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Standard email validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$/; // At least one symbol, one number, one small letter, one capital letter, 8-30 characters
+    const contactRegex = /^91\d{10}$/; // Starts with 91 and is 10 digits
+    const cityRegex = /^[a-zA-Z\s]{1,30}$/; // No numbers or symbols, max 30 letters
+    const pincodeRegex = /^\d{6}$/; // 6 digits
+
+    // Validate each field
+    if (!nameRegex.test(user.firstName) || !nameRegex.test(user.lastName)) {
+      toast.error(
+        "First and Last names must start with a capital letter and be at most 30 characters without numbers or symbols."
+      );
+      return false;
+    }
+    if (!emailRegex.test(user.emailId)) {
+      toast.error("Email must include '@' symbol and a domain.");
+      return false;
+    }
+    if (!passwordRegex.test(user.password)) {
+      toast.error(
+        "Password must be 8-30 characters, start with a capital letter, and include at least one symbol and one number."
+      );
+      return false;
+    }
+    if (!user.sex || genders.indexOf(user.sex) < 0) {
+      toast.error("Please select a valid gender.");
+      return false;
+    }
+    if (!contactRegex.test(user.contact)) {
+      toast.error("Contact number must start with 91 and be 10 digits.");
+      return false;
+    }
+    if (!cityRegex.test(user.city)) {
+      toast.error(
+        "City should not have any symbol or number, also max 30 letters."
+      );
+      return false;
+    }
+    if (!pincodeRegex.test(user.pincode)) {
+      toast.error("Pincode should be 6 digits.");
+      return false;
+    }
+
+    // Age Validation
+    if (user.age < 18 || user.age > 150) {
+      toast.error("Age must be between 18 and 150.");
+      return false;
+    }
+
+    // Street Validation
+    if (user.street.length < 10 || user.street.length > 50) {
+      toast.error("Street must be between 10 and 50 characters.");
+      return false;
+    }
+
+    if (user.street.length > 50) {
+      toast.error("Street should not have more than 50 characters.");
+      return false;
+    }
+    return true;
+  };
+
   const saveUser = (event) => {
     event.preventDefault();
+
+    // Validate the fields before submitting
+    if (!validateFields()) {
+      return; // Prevent the submission if validation fails
+    }
+
     fetch("http://localhost:8081/api/user/register", {
       method: "POST",
       headers: {
@@ -89,7 +160,11 @@ const UserRegister = () => {
           style={{ width: "50rem" }}
         >
           <div className="card-header bg-color custom-bg-text text-center">
-            <h5 className="card-title">{user.role == "Hotel" ? "Add Manager Details" : "Register " + user.role}</h5>
+            <h5 className="card-title">
+              {user.role == "Hotel"
+                ? "Add Manager Details"
+                : "Register " + user.role}
+            </h5>
           </div>
           <div className="card-body">
             <form className="row g-3" onSubmit={saveUser}>
