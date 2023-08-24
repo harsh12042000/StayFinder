@@ -52,6 +52,16 @@ const Header = () => {
                   <b className="text-color">Contact Us</b>
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link
+                  to="/gallery"
+                  className="nav-link active"
+                  aria-current="page"
+                >
+                  <b className="text-color">Gallery</b>
+                </Link>
+              </li>
             </ul>
 
             <RoleNav />

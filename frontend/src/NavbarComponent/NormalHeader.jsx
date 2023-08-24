@@ -9,7 +9,7 @@ const NormalHeader = () => {
           className="nav-link active"
           aria-current="page"
         >
-          <b className="text-color">Register Customer</b>
+          <b className="text-color">Register </b>
         </Link>
       </li>
 

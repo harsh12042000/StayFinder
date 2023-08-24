@@ -21,6 +21,8 @@ import { Button, Icon, Segment } from 'semantic-ui-react';
 import NotFound from "./page/PageNotFound";
 import AdminDashboard from "./AdminDashboard";
 import { useState } from "react";
+import Gallery from "./page/Gallery";
+import Footer from "./page/Footer";
 
 function App() {
 
@@ -125,6 +127,7 @@ function App() {
           // this is change
         />
         <Route path="/pagenotfound" element={<NotFound/>}></Route>
+        <Route path="/gallery" element={<Gallery/>}></Route>
       </Routes>
       <div style={{ position: "fixed", bottom: "20px", right: "20px" }}>
         {chatbotVisible && <ChatBot steps={steps} />}
@@ -147,6 +150,7 @@ function App() {
           <Icon name={chatbotVisible ? "minus" : "chat"} />
         </Button>
       </div>
+      <Footer />
     </div>
   );
 }

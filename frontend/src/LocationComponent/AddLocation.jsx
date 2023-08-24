@@ -61,7 +61,7 @@ const AddLocation = () => {
             <form onSubmit={saveLocation}>
               <div className="mb-3">
                 <label htmlFor="city" className="form-label">
-                  <b>Location(city)</b>
+                  <b>City</b>
                 </label>
                 <input
                   type="text"
@@ -76,7 +76,7 @@ const AddLocation = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="description" className="form-label">
-                  <b>Location Description</b>
+                  <b>Description</b>
                 </label>
                 <textarea
                   className="form-control"

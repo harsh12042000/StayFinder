@@ -21,4 +21,12 @@ public class HotelFacilityService {
 	    return this.hotelFacilityDao.save(hotelFacility);
 	}
 
+	public HotelFacility getHotelFacilityByHotelAndFacilityId(int hotelId, int facilityId) {
+		return this.hotelFacilityDao.findByHotelIdAndFacilityId(hotelId, facilityId);
+	}
+
+	public void deleteHotelFacility(HotelFacility hotelFacility) {
+		this.hotelFacilityDao.delete(hotelFacility);
+	}
+
 }

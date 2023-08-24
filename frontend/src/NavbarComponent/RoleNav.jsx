@@ -16,12 +16,14 @@ const RoleNav = () => {
     setCurrentPage(location.pathname);
   }, [location.pathname]);
 
+//user.firstName
+
   if (user != null) {
-    return <CustomerHeader />;
+    return <CustomerHeader firstName = {user.firstName}/>;
   } else if (admin != null) {
     return <AdminHeader />;
   } else if (hotel != null) {
-    return <HotelHeader />;
+    return <HotelHeader firstName = {user.firstName}/>;
   } else {
     return <NormalHeader />;
   }

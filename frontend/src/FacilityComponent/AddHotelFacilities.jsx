@@ -74,6 +74,14 @@ const AddHotelFacilities = () => {
   const deleteHotelFacility = (f) => {
     const updatedFacilities = hoteFacilities.filter((facility) => facility !== f);
     setHoteFacilities(updatedFacilities);
+  
+    axios.delete(`http://localhost:8081/api/facility/hotel/delete?hotelId=${hotelId}&facilityId=${f.id}`)
+      .then((response) => {
+        toast.success("Facility deleted successfully!");
+      })
+      .catch((error) => {
+        toast.error("Failed to delete facility.");
+      });
   };
   
 

@@ -11,4 +11,6 @@ public interface HotelFacilityDao extends JpaRepository<HotelFacility, Integer> 
 	
 	List<HotelFacility> findByHotelId(int hotelId);
 
+	HotelFacility findByHotelIdAndFacilityId(int hotelId, int facilityId);
+
 }

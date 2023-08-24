@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from "axios";
+import { toast } from 'react-toastify';
 
 const ContactUs = () => {
   const initialFormData = {
@@ -31,11 +33,39 @@ const ContactUs = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (event) => {
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (validateForm()) {
+  //     setFormData(initialFormData);
+  //     setErrors({});
+  //   }
+  // };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    
     if (validateForm()) {
-      setFormData(initialFormData);
-      setErrors({});
+      try {
+        const queryParams = `name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&message=${encodeURIComponent(formData.message)}`;
+      
+      const response = await axios.get(`http://localhost:8081/mail/send?${queryParams}`);
+
+      if(response != null) {
+        toast.success("Mail Sent Successfully!!!", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+        setFormData(initialFormData);
+        setErrors({});
+      } catch (error) {
+        console.error('Error sending form data:', error);
+      }
     }
   };
 

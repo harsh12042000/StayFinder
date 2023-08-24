@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -175,5 +176,24 @@ public class FacilityController {
 			return new ResponseEntity(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@DeleteMapping("/hotel/delete")
+    @ApiOperation(value = "Api to delete a facility from a Hotel")
+    public ResponseEntity<?> deleteHotelFacility(@RequestParam("hotelId") int hotelId, @RequestParam("facilityId") int facilityId) {
+        LOG.info("Received request to delete a facility from a Hotel");
+
+        CommanApiResponse response = new CommanApiResponse();
+
+        HotelFacility hotelFacility = hotelFacilityService.getHotelFacilityByHotelAndFacilityId(hotelId, facilityId);
+
+        if (hotelFacility == null) {
+            response.setResponseCode(ResponseCode.FAILED.value());
+            response.setResponseMessage("Hotel Facility not found");
+            return new ResponseEntity(response, HttpStatus.NOT_FOUND);
+        }
+
+        hotelFacilityService.deleteHotelFacility(hotelFacility);
+        return new ResponseEntity(response, HttpStatus.OK);
+    }
 
 }

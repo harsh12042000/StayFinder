@@ -327,7 +327,6 @@ const Hotel = () => {
       </div>
       <br />
       <hr />
-      <Footer />
     </div>
   );
 };

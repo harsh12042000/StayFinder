@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const HotelHeader = () => {
+const HotelHeader = ({firstName}) => {
   let navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("active-hotel"));
@@ -24,6 +24,8 @@ const HotelHeader = () => {
   };
 
   return (
+    <>
+    <h4>Welcome, {firstName} !</h4>
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
       <li className="nav-item">
         <Link
@@ -47,6 +49,7 @@ const HotelHeader = () => {
         <ToastContainer />
       </li>
     </ul>
+    </>
   );
 };
 

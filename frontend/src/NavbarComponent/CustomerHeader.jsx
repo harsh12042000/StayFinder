@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const CustomerHeader = () => {
+const CustomerHeader = ({firstName}) => {
   let navigate = useNavigate();
 
   const userLogout = () => {
@@ -22,6 +22,8 @@ const CustomerHeader = () => {
   };
 
   return (
+    <>
+    <h4>Welcome, {firstName} !</h4>
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
       <li className="nav-item">
         <Link
@@ -45,6 +47,7 @@ const CustomerHeader = () => {
         <ToastContainer />
       </li>
     </ul>
+    </>
   );
 };
 
