@@ -23,7 +23,7 @@ const RoleNav = () => {
   } else if (admin != null) {
     return <AdminHeader />;
   } else if (hotel != null) {
-    return <HotelHeader firstName = {user.firstName}/>;
+    return <HotelHeader/>;
   } else {
     return <NormalHeader />;
   }

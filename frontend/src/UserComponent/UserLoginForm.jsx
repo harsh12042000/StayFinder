@@ -31,11 +31,11 @@ const UserLoginForm = () => {
       newErrors.emailId = "Invalid email address";
     }
 
-    const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-    if (!passwordPattern.test(loginRequest.password)) {
-      newErrors.password =
-        "Password must be at least 8 characters, contain one uppercase letter, one lowercase letter, and one number";
-    }
+    // const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    // if (!passwordPattern.test(loginRequest.password)) {
+    //   newErrors.password =
+    //     "Password must be at least 8 characters, contain one uppercase letter, one lowercase letter, and one number";
+    // }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -54,12 +54,11 @@ const UserLoginForm = () => {
       })
         .then((result) => {
           if (!result.ok) {
-            throw new Error("Login failed!"); // This will handle a failed login based on HTTP status code
+            throw new Error("Login failed!"); 
           }
           return result.json();
         })
         .then((res) => {
-          // Process login response
           if (res.role === "Admin") {
             localStorage.setItem("active-admin", JSON.stringify(res));
             navigate("/admin");
@@ -161,9 +160,9 @@ const UserLoginForm = () => {
                   value={loginRequest.password}
                   autoComplete="on"
                 />
-                {errors.password && (
+                {/* {errors.password && (
                   <div className="invalid-feedback">{errors.password}</div>
-                )}
+                )} */}
               </div>
               <button
                 type="submit"

@@ -16,15 +16,15 @@ public class Booking {
 
 	private int userId;
 
-	private String checkIn; // check in date
+	private String checkIn; 
 
-	private String checkOut; // check out date
+	private String checkOut;
 
 	private String status;
 
 	private int hotelId;
 
-	private int totalRoom; // total room booked
+	private int totalRoom; 
 
 	private int totalDay;
 

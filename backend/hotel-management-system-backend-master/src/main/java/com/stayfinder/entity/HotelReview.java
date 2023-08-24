@@ -16,7 +16,7 @@ public class HotelReview {
 
 	private int hotelId;
 
-	private int star; // out of 5
+	private int star; 
 
 	private String review;
 

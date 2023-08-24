@@ -50,17 +50,15 @@ const UserRegister = () => {
     getAllGenders();
   }, []);
 
-  // Function to validate the fields
-  const validateFields = () => {
-    // Regular expressions for validation
-    const nameRegex = /^[A-Z][a-zA-Z]{1,29}$/; // No numbers or symbols, starts with a capital letter, and is at most 30 characters
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Standard email validation
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$/; // At least one symbol, one number, one small letter, one capital letter, 8-30 characters
-    const contactRegex = /^91\d{10}$/; // Starts with 91 and is 10 digits
-    const cityRegex = /^[a-zA-Z\s]{1,30}$/; // No numbers or symbols, max 30 letters
-    const pincodeRegex = /^\d{6}$/; // 6 digits
 
-    // Validate each field
+  const validateFields = () => {
+    const nameRegex = /^[A-Z][a-zA-Z]{1,29}$/; 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$/; 
+    const contactRegex = /^[0-9]{10}$/; 
+    const cityRegex = /^[a-zA-Z\s]{1,30}$/; 
+    const pincodeRegex = /^\d{6}$/; 
+
     if (!nameRegex.test(user.firstName) || !nameRegex.test(user.lastName)) {
       toast.error(
         "First and Last names must start with a capital letter and be at most 30 characters without numbers or symbols."
@@ -103,13 +101,13 @@ const UserRegister = () => {
     }
 
     // Street Validation
-    if (user.street.length < 10 || user.street.length > 50) {
-      toast.error("Street must be between 10 and 50 characters.");
+    if (user.street.length < 4 || user.street.length > 80) {
+      toast.error("Street must be between 4 and 80 characters.");
       return false;
     }
 
-    if (user.street.length > 50) {
-      toast.error("Street should not have more than 50 characters.");
+    if (user.street.length > 80) {
+      toast.error("Street should not have more than 80 characters.");
       return false;
     }
     return true;
