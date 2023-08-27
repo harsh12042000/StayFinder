@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import useRazorpay from "react-razorpay";
+import html2pdf from 'html2pdf.js';
 
 const ViewMyBooking = () => {
   const [allBookings, setAllBookings] = useState([]);
@@ -25,6 +28,87 @@ const ViewMyBooking = () => {
     console.log(response.data);
     return response.data;
   };
+
+  const generatePDF = async (order_id, amt) => {
+    const { PDFViewer, Document, Page, Text } = require("@react-pdf/renderer");
+  
+    const pdfBlob = await new Promise(async (resolve) => { 
+      const MyDocument = () => (
+        <Document>
+          <Page>
+            <Text>Payment Details:</Text>
+            <Text>Order ID: {order_id}</Text>
+            <Text>Amount: {amt}</Text>
+          </Page>
+        </Document>
+      );
+  
+      const pdfBlob = await PDFViewer.renderToBlob(<MyDocument />); 
+      resolve(pdfBlob);
+    });
+  
+    return pdfBlob;
+  };
+  
+  const [Razorpay] = useRazorpay();  
+  const paymentStart = async (amt) => {
+    try {
+      const order = await axios.get(`http://localhost:8081/api/hotel/pay?amount=${amt}`);
+      const order_id = order.data.order_id;
+      
+      const generateAndDownloadPDF = async () => {
+        const pdfElement = document.createElement("div");
+        pdfElement.innerHTML = `
+          <h2>Payment Details:</h2>
+          <p>Order ID: ${order_id}</p>
+          <p>Amount: ${amt}</p>
+          <p>Show this payment receipt while check-in</p>
+          <p></p>
+          <p></p>
+          <p>Thank You !</p>
+        `;
+        
+        const pdfOptions = {
+          margin: [10, 10],
+          filename: "payment_receipt.pdf",
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+  
+        await html2pdf().from(pdfElement).set(pdfOptions).save();
+      };
+  
+      const options = {
+        key: "rzp_test_a45KRpKctXLv5n",
+        amount: amt * 100,
+        currency: "INR",
+        name: "Stay Finder",
+        description: "Test Transaction",
+        order_id: order_id,
+        handler: async function (response) {
+          await generateAndDownloadPDF();
+        },
+      };
+  
+      const rzp1 = new Razorpay(options);
+  
+      rzp1.on("payment.failed", function (response) {
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+      });
+  
+      rzp1.open();
+    } catch (err) {
+      toast.error(err);
+    }
+  };
+  
 
   return (
     <div className="mt-3">
@@ -116,9 +200,18 @@ const ViewMyBooking = () => {
                       <td>
                         <b>{booking.status}</b>
                       </td>
+                      {
+                        booking.status == "Approved" ? 
+                        <td>
+                        <span>You can pay now & show this payment receipt at the time of check-in</span>
+                        <br></br>
+                        <button className="btn btn-primary" onClick={() => paymentStart(booking.totalAmount)}>{booking.totalAmount}</button>
+                      </td> :
                       <td>
-                        <b>{booking.totalAmount}</b>
-                      </td>
+                      <b>{booking.totalAmount}</b>
+                    </td>
+                      }
+                      
                     </tr>
                   );
                 })}

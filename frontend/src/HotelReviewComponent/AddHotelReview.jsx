@@ -109,36 +109,17 @@ const AddHotelReview = () => {
   };
 
   return (
-    <div className="container-fluid mb-5">
-      <div class="row">
-        <div class="col-sm-2 mt-2"></div>
-        <div class="col-sm-3 mt-2">
-          <div class="card form-card border-color custom-bg">
-            <HotelCarousel
-              item={{
-                image1: hotel.image1,
-                image2: hotel.image2,
-                image3: hotel.image3,
-              }}
-            />
-          </div>
-        </div>
-
-        <div class="col-sm-5 mt-2">
-          <div
-            className="card form-card border-color custom-bg"
-            style={{ width: "30rem" }}
-          >
-            <div className="card-header bg-color text-center custom-bg-text">
+    <div className="add-hotel-review-container">
+      <div className="container">
+        <div className="mt-5 mb-5">
+          <div className="card form-card">
+            <div className="card-header">
               <h5 className="card-title">Add Hotel Review</h5>
             </div>
-            <div className="card-body text-color">
+            <div className="card-body mb-5">
               <form onSubmit={saveHotelReview}>
                 <div className="mb-3">
-                  <label className="form-label">
-                    <b>Star</b>
-                  </label>
-
+                  <label className="form-label"><b>Star</b></label>
                   <select
                     name="locationId"
                     onChange={(e) => {
@@ -155,27 +136,19 @@ const AddHotelReview = () => {
                   </select>
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="review" className="form-label">
-                    <b>Hotel Review</b>
-                  </label>
+                  <label htmlFor="review" className="form-label"><b>Hotel Review</b></label>
                   <textarea
                     className="form-control"
                     id="review"
                     rows="3"
-                    placeholder="enter review.."
+                    placeholder="Enter your review..."
                     onChange={(e) => {
                       setReview(e.target.value);
                     }}
                     value={review}
                   />
                 </div>
-
-                <input
-                  type="submit"
-                  className="btn bg-color custom-bg-text"
-                  value="Add Review"
-                />
-
+                <button type="submit" className="btn btn-primary">Add Review</button>
                 <ToastContainer />
               </form>
             </div>
@@ -183,12 +156,12 @@ const AddHotelReview = () => {
         </div>
       </div>
 
-      <div className="row mt-4">
+      <div className="container">
         <div className="col-sm-12">
           <h2>Other Hotels in {hotel.location.city} Location:</h2>
           <div className="row row-cols-1 row-cols-md-4 g-4">
             {hotels.map((h) => {
-              return <HotelCard item={h} />;
+              return <HotelCard key={h.id} item={h} />;
             })}
           </div>
         </div>

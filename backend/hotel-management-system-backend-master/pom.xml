@@ -13,7 +13,7 @@
 	<artifactId>hotel-management-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hotel-management-system</name>
-	<description>Hotel Management System Project(Backend) using Spring Boot + React Js + MySQL</description>
+	<description>Hotel Management System</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -91,6 +91,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+		<dependency>
+    <groupId>com.razorpay</groupId>
+    <artifactId>razorpay-java</artifactId>
+    <version>1.3.9</version>
+</dependency>
+
 	</dependencies>
 
 	<build>

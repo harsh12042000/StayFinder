@@ -27,19 +27,19 @@ const Footer = () => {
 
                   <ul class="list-unstyled mb-0 ">
                     <li>
-                      <a href="#!" class="text-white text-decoration-none">
+                      <Link to="/about" class="text-white text-decoration-none">
                         About Team
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#!" class="text-white text-decoration-none">
-                        Services
-                      </a>
+                      <Link to="/contact" class="text-white text-decoration-none">
+                        Contact Us
+                      </Link>
                     </li>
                     <li>
-                      <a href="#!" class="text-white text-decoration-none">
-                        Privacy Policy
-                      </a>
+                      <Link to="/gallery" class="text-white text-decoration-none">
+                        Gallery
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -49,8 +49,8 @@ const Footer = () => {
 
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#!" class="text-white text-decoration-none">
-                        <p>Email: info@example.com</p>
+                      <a href="mailto:stayfinder9@.com" class="text-white text-decoration-none">
+                        <p>Email: stayfinder9@.com</p>
                       </a>
                     </li>
                     <li>

@@ -23,55 +23,65 @@ import AdminDashboard from "./AdminDashboard";
 import { useState } from "react";
 import Gallery from "./page/Gallery";
 import Footer from "./page/Footer";
+import Facility from "./page/Facility";
 
 function App() {
 
   const steps = [
     {
-      id: "Greet",        
-      message: "Hello, Welcome to our shop",        
-      trigger: "Done",        
-    },        
-    {       
-      id: "Done",        
-      message: "Please enter your name!",        
-      trigger: "waiting1",        
-    },      
-    {      
-      id: "waiting1",      
-      user: true,      
-      trigger: "Name",      
-    },      
-    {       
-      id: "Name",     
-      message: "Hi {previousValue}, Please select your issue",     
-      trigger: "issues",     
-    },      
-    {      
-      id: "issues",   
-      options: [   
-        {    
-          value: "React",   
-          label: "React",        
-          trigger: "React",       
-        },       
-        { value: "Angular", label: "Angular", trigger: "Angular" },       
-      ],       
-    },       
-    {       
-      id: "React",       
-      message:        
-        "Thanks for letting your React issue, Our team will resolve your issue ASAP",        
-      end: true,       
-    },       
-    {       
-      id: "Angular",       
-      message:       
-        "Thanks for letting your Angular issue, Our team will resolve your issue ASAP",       
-      end: true,       
-    },       
-  ]; 
-
+      id: "Greet",
+      message: "Hello, Welcome to our hotel management!",
+      trigger: "Done",
+    },
+    {
+      id: "Done",
+      message: "Please enter your name!",
+      trigger: "waiting1",
+    },
+    {
+      id: "waiting1",
+      user: true,
+      trigger: "Name",
+    },
+    {
+      id: "Name",
+      message: "Hi {previousValue}, How can we assist you today?",
+      trigger: "options",
+    },
+    {
+      id: "options",
+      options: [
+        {
+          value: "BookHotel",
+          label: "Book a Hotel",
+          trigger: "BookHotel",
+        },
+        {
+          value: "Facilities",
+          label: "Hotel Facilities",
+          trigger: "Facilities",
+        },
+        {
+          value: "ContactUs",
+          label: "Contact Us",
+          trigger: "ContactUs",
+        },
+      ],
+    },
+    {
+      id: "BookHotel",
+      message: "Sure, we can help you with hotel bookings. It is simple process Just click on book hotel enter your details, and Manager will check availability and verify your details, You can check your booking status on our Website !!",
+    },
+    {
+      id: "Facilities",
+      message: "Our hotels offer a range of facilities for your comfort. You can check details of facilities per hotel",
+    },
+    {
+      id: "ContactUs",
+      message: `If you have any questions or need assistance, feel free to reach out to us. You can see Contact Us in Header section`,
+    },
+  ];
+  
   const [chatbotVisible, setChatbotVisible] = useState(true);
   const toggleChatbot = () => {
     setChatbotVisible(!chatbotVisible);
@@ -98,6 +108,7 @@ function App() {
         <Route path="user/customer/register" element={<UserRegister />} />
         <Route path="user/admin/register" element={<UserRegister />} />
         <Route path="/user/login" element={<UserLoginForm />} />
+        <Route path="/facility" element={<Facility/>}></Route>
         <Route
           path="/home/hotel/location/:locationId/:locationName"
           element={<HomePage />}
