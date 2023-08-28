@@ -53,7 +53,7 @@ const ViewMyBooking = () => {
   const [Razorpay] = useRazorpay();  
   const paymentStart = async (amt) => {
     try {
-      const order = await axios.get(`http://localhost:8081/api/hotel/pay?amount=${amt}`);
+      const order = await axios.get(`http://localhost:8081/api/book/hotel/pay?amount=${amt}`);
       const order_id = order.data.order_id;
       
       const generateAndDownloadPDF = async () => {

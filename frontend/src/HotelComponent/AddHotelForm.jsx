@@ -87,10 +87,6 @@ const AddHotelForm = () => {
       .post("http://localhost:8081/api/hotel/add", formData)
       .then((result) => {
         result.json().then((res) => {
-          console.log(res);
-
-          console.log(res.responseMessage);
-
           navigate("/home");
         });
       });

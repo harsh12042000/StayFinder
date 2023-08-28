@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ViewMyHotelBookings = () => {
   let user = JSON.parse(localStorage.getItem("active-hotel"));
@@ -9,7 +9,7 @@ const ViewMyHotelBookings = () => {
   const [allBookings, setAllBookings] = useState([]);
 
   const [bookingStatus, setBookingStatus] = useState([]);
-
+  const navigate = useNavigate();
   const [updateBookingStatus, setUpdateBookingStatus] = useState({
     bookingId: "",
     bookingStatus: "",
@@ -68,13 +68,14 @@ const ViewMyHotelBookings = () => {
     }).then((result) => {
       console.log("result", result);
       result.json().then((res) => {
-        console.log("response", res);
-        setUpdateBookingStatus({
-          bookingId: "",
-          bookingStatus: "",
-        });
+        navigate("/user/hotel/bookings/all");
+        // console.log("response", res);
+        // setUpdateBookingStatus({
+        //   bookingId: "",
+        //   bookingStatus: "",
+        // });
 
-        setAllBookings(res.bookings);
+        // setAllBookings(res.bookings);
       });
     });
 

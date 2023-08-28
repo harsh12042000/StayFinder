@@ -109,7 +109,7 @@ const AdminDashboard = () => {
                   <div className="col-xxl-4 col-md-6">
                     <div className="card info-card revenue-card">
                       <div className="card-body">
-                        <h5 className="card-title">Revenue</h5>
+                        <h5 className="card-title">Total Transactions</h5>
                         <div className="d-flex align-items-center">
                           <div className="ps-3">
                             <h6 className="mb-0">Rs. {hotelData.revenue}</h6>

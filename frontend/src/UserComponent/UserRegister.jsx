@@ -52,7 +52,7 @@ const UserRegister = () => {
 
 
   const validateFields = () => {
-    const nameRegex = /^[A-Z][a-zA-Z]{1,29}$/; 
+    const nameRegex = /^[a-zA-Z]{1,29}$/; 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$/; 
     const contactRegex = /^[0-9]{10}$/; 
@@ -61,7 +61,7 @@ const UserRegister = () => {
 
     if (!nameRegex.test(user.firstName) || !nameRegex.test(user.lastName)) {
       toast.error(
-        "First and Last names must start with a capital letter and be at most 30 characters without numbers or symbols."
+        "First and Last names be at most 30 characters without numbers or symbols."
       );
       return false;
     }
@@ -80,7 +80,7 @@ const UserRegister = () => {
       return false;
     }
     if (!contactRegex.test(user.contact)) {
-      toast.error("Contact number must start with 91 and be 10 digits.");
+      toast.error("Contact number must be 10 digits.");
       return false;
     }
     if (!cityRegex.test(user.city)) {
@@ -116,9 +116,8 @@ const UserRegister = () => {
   const saveUser = (event) => {
     event.preventDefault();
 
-    // Validate the fields before submitting
     if (!validateFields()) {
-      return; // Prevent the submission if validation fails
+      return; 
     }
 
     fetch("http://localhost:8081/api/user/register", {

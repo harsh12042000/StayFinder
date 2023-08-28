@@ -3,6 +3,7 @@ package com.stayfinder.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.razorpay.Order;
+import com.razorpay.RazorpayClient;
 import com.stayfinder.dto.BookingDetailDto;
 import com.stayfinder.dto.BookingDto;
 import com.stayfinder.dto.CommanApiResponse;
@@ -48,6 +51,25 @@ public class BookingController {
 
 	@Autowired
 	private UserService userService;
+	
+	@GetMapping("pay")
+	public ResponseEntity<?> paymentGateway(@RequestParam("amount") String amount) {
+	    try {
+	        double a = Double.parseDouble(amount); 
+	        RazorpayClient razorpayClient = new RazorpayClient("rzp_test_a45KRpKctXLv5n", "0bVTMZf6PyU7P2EpGLBGAwNf");
+	        JSONObject options = new JSONObject();
+	        options.put("amount", (int) (a * 100)); // Convert the float amount to integer cents
+	        options.put("currency", "INR");
+	        options.put("receipt", "txn_123456");
+	        Order order = razorpayClient.Orders.create(options);
+	        String orderId = order.get("id").toString();
+	        JSONObject responseJson = new JSONObject();
+	        responseJson.put("order_id", orderId);
+	        return new ResponseEntity(responseJson.toString(), HttpStatus.OK);
+	    } catch (Exception e) {
+	        return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	}
 
 	@PostMapping("/")
 	@ApiOperation(value = "Api to book hotel")

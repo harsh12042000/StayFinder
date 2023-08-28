@@ -24,6 +24,7 @@ import { useState } from "react";
 import Gallery from "./page/Gallery";
 import Footer from "./page/Footer";
 import Facility from "./page/Facility";
+import ListYourHotel from "./ListYourHotel";
 
 function App() {
 
@@ -134,9 +135,8 @@ function App() {
         <Route
           path="/hotel/verify/booking/:bookingId"
           element={<VerifyBooking />}
-
-          // this is change
         />
+        <Route path="/listyourhotel" element={<ListYourHotel/>}></Route>
         <Route path="/pagenotfound" element={<NotFound/>}></Route>
         <Route path="/gallery" element={<Gallery/>}></Route>
       </Routes>

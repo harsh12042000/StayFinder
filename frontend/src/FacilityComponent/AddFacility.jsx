@@ -71,6 +71,7 @@ const AddFacility = () => {
                     setName(e.target.value);
                   }}
                   value={name}
+                  required
                 />
               </div>
               <div className="mb-3">
@@ -86,6 +87,7 @@ const AddFacility = () => {
                     setDescription(e.target.value);
                   }}
                   value={description}
+                  required
                 />
               </div>
 

@@ -2,7 +2,7 @@ import Carousel from "./Carousel";
 import GetAllLocations from "../LocationComponent/GetAllLocations";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, redirect, useParams } from "react-router-dom";
 import HotelCard from "../HotelComponent/HotelCard";
 import Footer from "./Footer";
 
@@ -29,6 +29,17 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <Carousel />
+      <div className="bg-dark text-light text-center p-4">
+          <h1 className="mb-3">Expand your business with us</h1>
+          <p>
+            If you're interested in registering your hotel with us or have any
+            queries, please feel free to contact our team. We'd be happy to
+            assist you.
+          </p>
+          <Link to="/listyourhotel">
+            <button className="btn btn-primary">Click Here</button>
+          </Link>
+        </div>
       <div className="content-container">
         <div className="location-section">
           <GetAllLocations />
