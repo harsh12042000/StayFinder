@@ -72,6 +72,7 @@ const AddLocation = () => {
                     setCity(e.target.value);
                   }}
                   value={city}
+                  required
                 />
               </div>
               <div className="mb-3">
@@ -87,6 +88,7 @@ const AddLocation = () => {
                     setDescription(e.target.value);
                   }}
                   value={description}
+                  required
                 />
               </div>
 
