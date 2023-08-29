@@ -55,8 +55,34 @@ const Hotel = () => {
     totalDay: "",
   });
 
+  useEffect(() => {
+    if (booking.checkIn > booking.checkOut) {
+      setBooking({
+        ...booking,
+        checkOut: booking.checkIn,
+      });
+    }
+
+    if (booking.checkIn && booking.checkOut) {
+      const checkInDate = new Date(booking.checkIn);
+      const checkOutDate = new Date(booking.checkOut);
+      const timeDiff = checkOutDate.getTime() - checkInDate.getTime();
+      const totalDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Convert milliseconds to days
+      setBooking({
+        ...booking,
+        totalDay: totalDays.toString(),
+      });
+    }
+  }, [booking.checkIn, booking.checkOut]);
+
   const handleBookingInput = (e) => {
-    setBooking({ ...booking, [e.target.name]: e.target.value });
+
+    const { name, value } = e.target;
+    if (Number(value) > hotel.totalRoom) {
+      toast.error("Please Enter Valid Room Number!");
+    } else {
+      setBooking({ ...booking, [e.target.name]: e.target.value });
+    }
   };
 
   const retrieveHotel = async () => {
@@ -164,6 +190,8 @@ const Hotel = () => {
     navigate("/hotel/" + hotelId + "/location/" + locationId + "/add/review");
   };
 
+  const today = new Date().toISOString().split("T")[0];
+
   return (
     <div className="container mb-5">
       <div class="row">
@@ -212,11 +240,10 @@ const Hotel = () => {
                     <label for="checkin">Check-in</label>
                     <input
                       type="date"
-                      class="form-control"
-                      id="checkin"
                       name="checkIn"
-                      onChange={handleBookingInput}
                       value={booking.checkIn}
+                      min={today}
+                      onChange={handleBookingInput}
                       required
                     />
                   </div>
@@ -224,11 +251,10 @@ const Hotel = () => {
                     <label for="checkout">Check-out</label>
                     <input
                       type="date"
-                      class="form-control"
-                      id="checkout"
                       name="checkOut"
-                      onChange={handleBookingInput}
                       value={booking.checkOut}
+                      min={booking.checkIn} 
+                      onChange={handleBookingInput}
                       required
                     />
                   </div>
@@ -253,7 +279,7 @@ const Hotel = () => {
                       name="totalDay"
                       onChange={handleBookingInput}
                       value={booking.totalDay}
-                      required
+                      disabled
                     />
                   </div>
 
@@ -302,20 +328,18 @@ const Hotel = () => {
               })()}
             </div>
           </div>
-          
 
           <div className="row mt-2">
-        <div className="col-6 mt-2">
-          {/* {
+            <div className="col-6 mt-2">
+              {/* {
           console.log("********") } {
           console.log(hotel)} */}
-          <GetHotelFacilities item={hotel} />
-        </div>
-        <div className="col-6 mt-2">
-          <GetHotelReviews item={hotel} />
-        </div>
-      </div>
-
+              <GetHotelFacilities item={hotel} />
+            </div>
+            <div className="col-6 mt-2">
+              <GetHotelReviews item={hotel} />
+            </div>
+          </div>
         </div>
       </div>
 
