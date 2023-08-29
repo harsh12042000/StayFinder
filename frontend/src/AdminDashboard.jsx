@@ -6,13 +6,13 @@ import axios from "axios";
 const admin = JSON.parse(localStorage.getItem("active-admin"));
 
 const App = () => {
-  // return admin ? (
-  //   <AdminDashboard />
-  // ) : (
-  //   <p>
-  //     <NotFound />
-  //   </p>
-  // );
+  return admin ? (
+    <AdminDashboard />
+  ) : (
+    <p>
+      <NotFound />
+    </p>
+  );
 
   return <AdminDashboard/>
 };

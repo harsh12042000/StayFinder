@@ -15,7 +15,11 @@ const Hotel = () => {
   const { hotelId, locationId } = useParams();
 
   let user = JSON.parse(localStorage.getItem("active-customer"));
-  let admin = JSON.parse(localStorage.getItem("active-admin"));
+  let admin = JSON.parse(localStorage.getItem("active-hotel"));
+
+  // console.log("*******");
+  // console.log(admin);
+  // console.log("*******");
 
   const [quantity, setQuantity] = useState("");
 
@@ -266,8 +270,8 @@ const Hotel = () => {
               </div>
 
               {(() => {
-                if (admin) {
-                  console.log(admin);
+                if (admin != null && admin.hotelId == hotelId) {
+                  // console.log(admin);
                   return (
                     <div>
                       <input

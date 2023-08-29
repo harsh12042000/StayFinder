@@ -6,7 +6,7 @@ const AdminHeader = () => {
   let navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("active-admin"));
-  console.log(user);
+  // console.log(user);
 
   const adminLogout = () => {
     toast.success("logged out!!!", {
@@ -43,7 +43,7 @@ const AdminHeader = () => {
         </Link>
       </li>
 
-      <li className="nav-item">
+      {/* <li className="nav-item">
         <Link
           to="/admin/add-facility"
           className="nav-link active"
@@ -51,7 +51,7 @@ const AdminHeader = () => {
         >
           <b className="text-color">Add Facility</b>
         </Link>
-      </li>
+      </li> */}
 
       <li className="nav-item">
         <Link

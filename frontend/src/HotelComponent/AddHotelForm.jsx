@@ -115,6 +115,7 @@ const AddHotelForm = () => {
                   name="name"
                   onChange={handleInput}
                   value={hotel.name}
+                  required
                 />
               </div>
 
@@ -149,19 +150,20 @@ const AddHotelForm = () => {
                   rows="3"
                   onChange={handleInput}
                   value={hotel.description}
+                  required
                 />
               </div>
 
               <div className="col-md-6 mb-3">
                 <label className="form-label">
-                  <b>Hotel Admin</b>
+                  <b>Hotel Manager</b>
                 </label>
                 <select
                   name="userId"
                   onChange={handleInput}
                   className="form-control"
                 >
-                  <option value="">Select Hotel Admin</option>
+                  <option value="">Select Hotel Manager</option>
 
                   {hotelUsers.map((hotelUser) => {
                     return (
@@ -185,6 +187,7 @@ const AddHotelForm = () => {
                   name="emailId"
                   onChange={handleInput}
                   value={hotel.emailId}
+                  required
                 />
               </div>
 
@@ -199,6 +202,7 @@ const AddHotelForm = () => {
                   name="pricePerDay"
                   onChange={handleInput}
                   value={hotel.pricePerDay}
+                  required
                 />
               </div>
 
@@ -213,6 +217,7 @@ const AddHotelForm = () => {
                   name="totalRoom"
                   onChange={handleInput}
                   value={hotel.totalRoom}
+                  required
                 />
               </div>
 
@@ -227,6 +232,7 @@ const AddHotelForm = () => {
                   name="street"
                   onChange={handleInput}
                   value={hotel.street}
+                  required
                 />
               </div>
 
@@ -241,6 +247,7 @@ const AddHotelForm = () => {
                   name="pincode"
                   onChange={handleInput}
                   value={hotel.pincode}
+                  required
                 />
               </div>
 
@@ -255,6 +262,7 @@ const AddHotelForm = () => {
                   name="image1"
                   value={hotel.image1}
                   onChange={(e) => setSelectedImage1(e.target.files[0])}
+                  required
                 />
               </div>
 
@@ -269,6 +277,7 @@ const AddHotelForm = () => {
                   name="image2"
                   value={hotel.image2}
                   onChange={(e) => setSelectedImage2(e.target.files[0])}
+                  required
                 />
               </div>
 
@@ -283,6 +292,7 @@ const AddHotelForm = () => {
                   name="image3"
                   value={hotel.image3}
                   onChange={(e) => setSelectedImage3(e.target.files[0])}
+                  required
                 />
               </div>
 

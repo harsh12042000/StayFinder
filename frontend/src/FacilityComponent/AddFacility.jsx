@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import NotFound from "../page/PageNotFound";
 
-const admin = JSON.parse(localStorage.getItem("active-admin"));
+const admin = JSON.parse(localStorage.getItem("active-hotel"));
 
 const App = () => {
   return admin ? <AddFacility /> : <p><NotFound/></p>;
