@@ -14,7 +14,7 @@ const App = () => {
     </p>
   );
 
-  return <AdminDashboard/>
+  // return <AdminDashboard/>
 };
 
 const AdminDashboard = () => {

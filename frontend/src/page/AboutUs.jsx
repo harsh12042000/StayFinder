@@ -1,3 +1,6 @@
+import photo02 from "../images/photo-2.jpg";  
+// import person1 from "../images/person-1.jpg";
+
 const AboutUs = () => {
   return (
     <>
@@ -29,7 +32,7 @@ const AboutUs = () => {
         </div>
         <div className="col-md-6">
           <img
-            src="photo-2.jpg"
+            src={photo02}
             alt="Hotel Photo 1"
             className="img-fluid rounded"
           />
@@ -44,7 +47,8 @@ const AboutUs = () => {
         <div className="col-md-4">
           <div className="card">
             <img
-              src="person-1.jpg"
+              // src={person1}
+              src="person.jpg"
               alt="Team member 1"
               className="card-img-top rounded-circle"
             />

@@ -2,9 +2,21 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import NotFound from "../page/PageNotFound";
+
+let user = JSON.parse(localStorage.getItem("active-hotel"));
+
+const App = () => {
+  return user ? (
+    <ViewMyHotelBookings />
+  ) : (
+    <p>
+      <NotFound />
+    </p>
+  );
+};
 
 const ViewMyHotelBookings = () => {
-  let user = JSON.parse(localStorage.getItem("active-hotel"));
 
   const [allBookings, setAllBookings] = useState([]);
 
@@ -204,4 +216,4 @@ const ViewMyHotelBookings = () => {
   );
 };
 
-export default ViewMyHotelBookings;
+export default App;

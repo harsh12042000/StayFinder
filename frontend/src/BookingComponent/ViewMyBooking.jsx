@@ -4,11 +4,22 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import useRazorpay from "react-razorpay";
 import html2pdf from 'html2pdf.js';
+import NotFound from "../page/PageNotFound";
+
+let user = JSON.parse(localStorage.getItem("active-customer"));
+
+const App = () => {
+  return user ? (
+    <ViewMyBooking />
+  ) : (
+    <p>
+      <NotFound />
+    </p>
+  );
+};
 
 const ViewMyBooking = () => {
   const [allBookings, setAllBookings] = useState([]);
-
-  let user = JSON.parse(localStorage.getItem("active-customer"));
 
   useEffect(() => {
     const getAllBooking = async () => {
@@ -224,4 +235,4 @@ const ViewMyBooking = () => {
   );
 };
 
-export default ViewMyBooking;
+export default App;
