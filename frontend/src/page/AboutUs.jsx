@@ -6,6 +6,20 @@ import photo_04 from "../images/photo_04.jpg";
 import photo_05 from "../images/photo_05.jpeg";
 import photo_06 from "../images/photo_06.jpeg";
 
+const TeamMember = ({ photoSrc, name }) => (
+  <div className="col-md-4 mb-4">
+    <div className="card">
+      <img
+        src={photoSrc}
+        alt={`Team member - ${name}`}
+        className="card-img-top"
+      />
+      <div className="card-body">
+        <h5 className="card-title">{name}</h5>
+      </div>
+    </div>
+  </div>
+);
 
 const AboutUs = () => {
   return (
@@ -15,7 +29,7 @@ const AboutUs = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-6">
-                <h1 className="display-4 text-primary">About Our Hotel</h1>
+                <h1 className="display-4 text-primary">About Our Hotels</h1>
                 <p className="lead">
                   Discover a world of luxury and comfort at Stay Finder – where every
                   moment is designed to be a memorable escape. Immerse yourself in the
@@ -49,12 +63,12 @@ const AboutUs = () => {
         <section id="guest-photos" className="bg-light py-5">
           <div className="container text-center">
             <h2 className="display-4">Our Team</h2>
-            <div className="row">
+            <div className="row" style={{margin: "0 8% 0 8%"}}>
               <div className="col-md-4">
                 <div className="card">
                   <img
                     src={photo_01}
-                    height={350}
+                    height={250}
                     width="30%"
                     alt="Team member 1" image
                     className="card-img-top"
@@ -68,7 +82,7 @@ const AboutUs = () => {
                 <div className="card">
                   <img
                     src={photo_02}
-                    height={350}
+                    height={250}
                     width="30%"
                     alt="Team memeber 2"
                     className="card-img-top"
@@ -82,7 +96,7 @@ const AboutUs = () => {
                 <div className="card">
                   <img
                     src={photo_03}
-                    height={350}
+                    height={250}
                     width="30%"
                     alt="Team member 3"
                     className="card-img-top"
@@ -96,7 +110,7 @@ const AboutUs = () => {
                 <div className="card">
                   <img
                     src={photo_04}
-                    height={350}
+                    height={250}
                     width="30%"
                     alt="Team member 4"
                     className="card-img-top"
@@ -110,7 +124,7 @@ const AboutUs = () => {
                 <div className="card">
                   <img
                     src={photo_05}
-                    height={350}
+                    height={250}
                     width="30%"
                     alt="Team member 5"
                     className="card-img-top"
@@ -124,7 +138,7 @@ const AboutUs = () => {
                 <div className="card">
                   <img
                     src={photo_06}
-                    height={350}
+                    height={250}
                     width="30%"
                     alt="Team member 6"
                     className="card-img-top"
@@ -137,7 +151,7 @@ const AboutUs = () => {
             </div>
           </div>
         </section>
-        {/* <section id="testimonials" className="py-5">
+        <section id="testimonials" className="py-5">
           <div className="container text-center">
             <h2 className="display-4">What Our CEO Say</h2>
             <div className="row">
@@ -146,7 +160,7 @@ const AboutUs = () => {
                   <div className="card-body">
                     <img
                       src="test-bg.jpg"
-                      alt="Guest Photo"
+                      alt="StayFinder"
                       className="img-fluid rounded-circle mb-4"
                     />
                     <p className="lead">
@@ -159,10 +173,10 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-        </section> */}
+        </section> 
       </>
-
     </>
+    
   );
 };
 

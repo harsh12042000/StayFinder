@@ -121,9 +121,6 @@ const AdminDashboard = () => {
                       </div>
                     </div>
                   </div>
-
-                  {/* End Revenue Card */}
-                  {/* Customers Card */}
                   <div className="col-xxl-4 col-xl-12">
                     <div className="card info-card customers-card">
                       <div className="card-body">
@@ -139,9 +136,6 @@ const AdminDashboard = () => {
                       </div>
                     </div>
                   </div>
-
-                  {/* End Customers Card */}
-                  {/* Top Selling */}
                   <div className="col-12">
                     <div className="card top-selling overflow-auto">
                       <div className="card-body pb-0">
@@ -179,10 +173,8 @@ const AdminDashboard = () => {
                       </div>
                     </div>
                   </div>
-                  {/* End Top Selling */}
                 </div>
               </div>
-              {/* End Left side columns */}
               <div className="col-lg-4">
                 <div className="card">
                   <div className="card-body pb-0">
@@ -198,7 +190,6 @@ const AdminDashboard = () => {
                     </div>
                   </div>
                 </div>
-                {/* End Website Traffic */}
               </div>
               {/* End Right side columns */}
             </div>
